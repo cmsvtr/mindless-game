@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323', monospace;
+    background-color: rgb(43, 39, 39);
+    color: #75eb89;
+    border: solid red 1px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+#intro-window {
+
+    z-index: 1;
+}
+
+#name-window {
+ 
+    z-index: 5;
+}
+
+#howto-window {
+    z-index: 10;
+}
+
+#countdown-window {
+    z-index: 15;
+}
+
+#game-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    z-index: 20;
+}
+
+#winner-window {
+    z-index: 25;
+}
+
+#loser-window {
+    z-index: 30;
+}
+
+.clerk {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.clerk img {
+    object-fit: scale-down;
+    width: 10%;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.player img{
+    object-fit: scale-down;
+    width: 15%;
+    margin-top: 5%;
+}

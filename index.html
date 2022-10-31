@@ -5,46 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <!--ADD BOOTSTRAP-->
-    <title>Game</title>
+    <title>Mindless Tasks</title>
 </head>
 <body>
-    <div id="intro-window">
+    <div id="intro-window" class="hide">
+        <p id="game-studio" class="">BBB games. Bored Beyong Belief</p>
+        <p id="game-name" class="">Mindless Tasks</p> <!--Or just and image--> 
+    </div>
+
+    <div id="name-window" class="show">
+        <p>What is your name, peasent?</p>
+        <input type="text" placeholder="Write it here, genius." id="name-input">
+        <button id="start-button">/> COMMIT</button>
+        <a href="#howto-window" class="link">HOW TO PLAY</a>
+    </div>
+
+    <div id="howto-window" class="hide">
+        <p>Your goal is to send the form to the correct clerk by clicking on him without letting them pile up.</p>
+    </div>
+
+    <div id="countdown-window" class="hide">
+        <p>Hello, <span class="name-holder"></span>. A new work day full of promise starts in <span id="countdown">3</span> seconds. Yay.</p>
+        <img src="" alt=""> <!--colored pixel art office image-->
+    </div>
+
+    <div id="game-window" class="hide">
+        <p>Player: <span class="name-holder"></span> | <span id="game-timer">TIMER</span> | Level: <span>00</span> | Points: <span id="game-points">00</span> | Mistakes: <span id="game-mistakes">0</span></p>
+        <div class="clerk">
+            <img src="" alt="" id="clerk1" class="clerk-image">
+            <img src="" alt="" id="clerk2" class="clerk-image">
+            <img src="" alt="" id="clerk3" class="clerk-image">
+        </div>
+        <div class="clerk">
+            <p>Clerk 1</p>
+            <p>Clerk 2</p>
+            <p>Clerk 3</p>
+        </div>
+        <div class="player">
+            <img src="./assets/form-h1.png" alt="" id="current-form">
+        </div>
+        <div class="player">
+            <p>Player Form</p>
+            <p><span id="game-inbox">0</span> forms backed up!</p>         
+        </div>
+    </div>
+
+    <div id="winlevel-window" class="hide">
+        <img src="" alt=""><!--colored coffee break image-->
+    </div>
+
+    <div id="mini-game-window" class="hide">
 
     </div>
 
-    <div id="name-window">
-
+    <div id="winner-window" class="hide">
+        <p>Congratulations, <span class = "name-holder"></span>! After mindlessly sending 100 useless forms to the clerks in <span id="end-timer"></span> seconds, you are now a regional 
+            assistant deputy vice manager. Enjoy your cubicle a bit closer to the window and a 10% pharmacy discount on the purchase of Xanax.</p>
+        <img src="" alt=""><!--Colored office pixel art image-->
     </div>
 
-    <div id="howto-window">
-
-    </div>
-
-    <div id="countdown-window">
-
-    </div>
-
-    <div id="game-window">
-
-    </div>
-
-    <div id="winlevel-window">
-
-    </div>
-
-    <div id="mini-game-window">
-
-    </div>
-
-    <div id="winner-window">
-
-    </div>
-
-    <div id="loser-window">
+    <div id="loser-window" class="hide">
+        <p>Wow. You can't even get this right. Yikes.</p>
+        <img src="" alt=""><!--black and white pixel art image of sad employee-->
         
     </div>
-    
+  
 <script src="./js/Game.js"></script>  
 <script src="./js/index.js"></script>  
 </body>
