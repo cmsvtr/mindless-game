@@ -12,28 +12,26 @@
     <title>Mindless Tasks</title>
 </head>
 <body>
-    <div id="intro-window" class="hide">
-        <p id="game-studio" class="">BBB games. Bored Beyong Belief</p>
-        <p id="game-name" class="">Mindless Tasks</p> <!--Or just and image--> 
+    <div id="intro-window" class="show box">
+        <h1 id="game-name" class="">/* M i n d l e s s  Tasks */</h1> <!--Or just and image--> 
     </div>
 
-    <div id="name-window" class="show">
-        <p>What is your name, peasent?</p>
+    <div id="name-window" class="hide box">
+        <h2>What is your name, peasent?</h2>
         <input type="text" placeholder="Write it here, genius." id="name-input">
         <button id="start-button">/> COMMIT</button>
-        <a href="#howto-window" class="link">HOW TO PLAY</a>
     </div>
 
-    <div id="howto-window" class="hide">
-        <p>Your goal is to send the form to the correct clerk by clicking on him without letting them pile up.</p>
+    <div id="countdown-window" class="hide box">
+        <img src="./assets/new-day-office.png" alt="">
+        <p>Hello, <span class="name-holder"></span>. A new work day full of promise starts. Yay.</p>
+        <p>Your "job" is to send the correct form to the correct clerk by clicking on him or using the arrow buttons without letting 
+            more than 20 pile up, or making more than 10 mistakes. Sounds easy, right? Yeah, it is. Watch out for the little dude, he's there to confuse...what an ass.
+        </p>
+        <p>Click anywhere to start.</p>    
     </div>
 
-    <div id="countdown-window" class="hide">
-        <p>Hello, <span class="name-holder"></span>. A new work day full of promise starts in <span id="countdown">3</span> seconds. Yay.</p>
-        <img src="" alt=""> <!--colored pixel art office image-->
-    </div>
-
-    <div id="game-window" class="hide">
+    <div id="game-window" class="hide box">
         <p>Player: <span class="name-holder"></span> | <span id="game-timer">TIMER</span> | Level: <span>00</span> | Points: <span id="game-points">00</span> | Mistakes: <span id="game-mistakes">0</span></p>
         <div class="clerk">
             <img src="" alt="" id="clerk1" class="clerk-image">
@@ -49,26 +47,27 @@
             <img src="./assets/form-h1.png" alt="" id="current-form">
         </div>
         <div class="player">
-            <p>Player Form</p>
             <p><span id="game-inbox">0</span> forms backed up!</p>         
         </div>
+        <img src="./assets/dude-normal.png" alt="" id="dude">
     </div>
 
-    <div id="winlevel-window" class="hide">
+    <div id="winlevel-window" class="hide box">
+        <p>YOU WIN</p>
         <img src="" alt=""><!--colored coffee break image-->
     </div>
 
-    <div id="mini-game-window" class="hide">
+    <div id="mini-game-window" class="hide box">
 
     </div>
 
-    <div id="winner-window" class="hide">
-        <p>Congratulations, <span class = "name-holder"></span>! After mindlessly sending 100 useless forms to the clerks in <span id="end-timer"></span> seconds, you are now a regional 
+    <div id="winner-window" class="hide box">
+        <p>Congratulations, <span class = "name-holder"></span>! After mindlessly sending 50 useless forms to the clerks in <span id="end-timer"></span> seconds, you are now a regional 
             assistant deputy vice manager. Enjoy your cubicle a bit closer to the window and a 10% pharmacy discount on the purchase of Xanax.</p>
         <img src="" alt=""><!--Colored office pixel art image-->
     </div>
 
-    <div id="loser-window" class="hide">
+    <div id="loser-window" class="hide box">
         <p>Wow. You can't even get this right. Yikes.</p>
         <img src="" alt=""><!--black and white pixel art image of sad employee-->
         

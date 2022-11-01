@@ -5,7 +5,107 @@
     font-family: 'VT323', monospace;
     background-color: rgb(43, 39, 39);
     color: #75eb89;
-    border: solid red 1px;
+    /*border: solid red 1px;*/
+}
+
+
+.box{
+    width: 100%;
+    height: 100%;            
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+}
+
+#intro-window {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 16;
+    opacity: 1;
+}
+
+#name-window {
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 17;
+
+}
+
+#name-window input {
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid grey;
+    font-size: 30px;
+
+}
+
+#name-window button {
+    font-size: x-large;
+    border: 2px solid #75eb89;
+}
+
+
+#countdown-window {
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 5% 5% 5%;
+    z-index: 19;
+}
+
+#countdown-window * {
+    padding: 2% 0 2% 0;
+}
+
+#countdown-window img {
+    height: 80%;
+    padding: 4%;
+}
+
+#game-window {
+
+    flex-direction: column;
+    align-items: center;
+    padding: 0% 5% 5% 5%;
+    height: 100%;
+    z-index: 20;
+}
+
+#winner-window {
+
+    justify-content: center;
+    align-items: center;
+    padding: 5% 5% 5% 5%;
+    z-index: 25;
+}
+
+#loser-window {
+
+    justify-content: center;
+    align-items: center;
+    padding: 5% 5% 5% 5%;
+    z-index: 25;
+}
+
+#mini-game-window {
+
+    justify-content: center;
+    align-items: center;
+    z-index: 24;
+}
+
+#winlevel-window {
+
+    justify-content: center;
+    align-items: center;
+    z-index: 24;    
 }
 
 .hide {
@@ -14,40 +114,6 @@
 
 .show {
     display: flex;
-}
-
-#intro-window {
-
-    z-index: 1;
-}
-
-#name-window {
- 
-    z-index: 5;
-}
-
-#howto-window {
-    z-index: 10;
-}
-
-#countdown-window {
-    z-index: 15;
-}
-
-#game-window {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    z-index: 20;
-}
-
-#winner-window {
-    z-index: 25;
-}
-
-#loser-window {
-    z-index: 30;
 }
 
 .clerk {
@@ -68,6 +134,13 @@
 }
 .player img{
     object-fit: scale-down;
+    padding-top: 80%;
+    padding-bottom: 40%;
+}
+
+#dude {
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
     width: 15%;
-    margin-top: 5%;
 }

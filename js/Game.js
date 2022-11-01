@@ -11,6 +11,8 @@ class MindlessTask {
         this.formsRandom = this.formsWindow.sort(() => Math.random() - 0.5);
         this.formsInbox = [];
         this.checkArr = [/*array for comparing the paperWork[0] with paperWindow player clicked*/];
+        this.formInterval = [];
+        this.timerInterval = [];
     };
 
     newForm () {
@@ -21,8 +23,15 @@ class MindlessTask {
         return form;
     };
 
+    addForm () {
+        this.formInterval[0] = setInterval(() => {
+            this.formsInbox.push(this.newForm());
+            document.querySelector('#game-inbox').innerHTML = this.formsInbox.length        
+        }, 500);
+    }
+
     runTimer () {
-        setInterval(() => {
+        this.timerInterval[0] = setInterval(() => {
             this.timer += 1;
             document.querySelector('#game-timer').innerHTML = this.timer;
         }, 1000);
@@ -42,24 +51,33 @@ class MindlessTask {
         this.checkArr = [];
 
         if (this.formsInbox.length >= 20 || this.mistakes >= 10) {
-            //loser message, .hides game window and pops up loser div.
+            document.querySelector('#loser-window').setAttribute('class', 'show box');
+            clearInterval(this.formInterval[0]);
+            clearInterval(this.timerInterval[0]);
         };
 
-        if (this.points ===20) {
-            //winner message, hides game window and show winner div. Winner div should include click for opening mini-game. If time allows.
+        if (this.points === 50) {
+            document.querySelector('#end-timer').innerHTML = this.timer;
+            document.querySelector('#winner-window').setAttribute('class', 'show box');
+            clearInterval(this.formInterval[0]);
+            clearInterval(this.timerInterval[0]);
         }
 
         this.formsInbox.shift();
 
+        if (this.formsInbox.length === 0) {
+            document.querySelector('#current-form').src = this.newForm();
+        }else{      
         document.querySelector('#current-form').src = this.formsInbox[0];
+        };
 
     };
 
     setClerk () {
 
-        document.querySelector('#clerk1').src = './assets/clerk-1.png';
-        document.querySelector('#clerk2').src = './assets/clerk-1.png';
-        document.querySelector('#clerk3').src = './assets/clerk-1.png';
+        document.querySelector('#clerk1').src = './assets/clerk.gif';
+        document.querySelector('#clerk2').src = './assets/clerk.gif';
+        document.querySelector('#clerk3').src = './assets/clerk.gif';
 
     };
     
