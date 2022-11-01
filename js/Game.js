@@ -27,7 +27,7 @@ class MindlessTask {
         this.formInterval[0] = setInterval(() => {
             this.formsInbox.push(this.newForm());
             document.querySelector('#game-inbox').innerHTML = this.formsInbox.length        
-        }, 500);
+        }, 750);
     }
 
     runTimer () {
