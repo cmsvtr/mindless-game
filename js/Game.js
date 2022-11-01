@@ -41,8 +41,10 @@ class MindlessTask {
 
         if (`${this.checkArr[0]}` === `${this.checkArr[1]}`) {
             this.points += 1;
+            document.querySelector('#dude').src = './assets/dude-mad.png'
         }else{
             this.mistakes += 1;
+            document.querySelector('#dude').src = './assets/dude-happy.png'
         }
 
         document.querySelector('#game-points').innerHTML = this.points;
