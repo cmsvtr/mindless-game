@@ -4,7 +4,7 @@ class MindlessTask {
     constructor() {
         this.player = '';
         this.timer = 0; //highscore is defined by how fast a player can reach 100 points
-        this.level = 0; //game level. will define the speed the paperWork array is filled
+        this.level = 1; //game level. will define the speed the paperWork array is filled
         this.points = 0; //player must make 100 points
         this.mistakes = 0; //player can only have x mistakes
         this.formsWindow = ['./assets/form-h1.png', './assets/form-h2.png', './assets/form-h3.png'];
@@ -23,12 +23,12 @@ class MindlessTask {
         return form;
     };
 
-    addForm () {
+    addForm (speed) {
         this.formInterval[0] = setInterval(() => {
             this.formsInbox.push(this.newForm());
             document.querySelector('#game-inbox').innerHTML = this.formsInbox.length        
-        }, 750);
-    }
+        }, speed);
+    };
 
     runTimer () {
         this.timerInterval[0] = setInterval(() => {
@@ -56,20 +56,28 @@ class MindlessTask {
             clearInterval(this.timerInterval[0]);
         };
 
-        if (this.points === 50) {
+        if (this.points === 25 && this.level === 1) {
+            document.querySelector('#end-timer').innerHTML = this.timer;
+            document.querySelector('#winlevel-window').setAttribute('class', 'show box');
+            clearInterval(this.formInterval[0]);
+            clearInterval(this.timerInterval[0]);
+        };
+
+        if (this.points === 25 && this.level === 2) {
             document.querySelector('#end-timer').innerHTML = this.timer;
             document.querySelector('#winner-window').setAttribute('class', 'show box');
             clearInterval(this.formInterval[0]);
             clearInterval(this.timerInterval[0]);
-        }
+        };
 
         this.formsInbox.shift();
 
         if (this.formsInbox.length === 0) {
+            this.formsInbox.push(this.newForm());
             document.querySelector('#current-form').src = this.newForm();
-        }else{      
+        };     
+        
         document.querySelector('#current-form').src = this.formsInbox[0];
-        };
 
     };
 
@@ -87,6 +95,7 @@ class MindlessTask {
 class TicTacToe {
     constructor () {
         this.fields = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        this.openFields = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         this.played = [];
         this.humPlayed = [];
         this.botPlayed = [];
@@ -95,98 +104,245 @@ class TicTacToe {
 
     checkWinHum () {
         this.wins.forEach (win => {
-            //win.every(pos => this.humPlayed.includes(pos)) ? return //win sequence or continues;
-        });
+            if (win.every(pos => this.humPlayed.includes(pos))) {
+                document.querySelector('#tictactoe-notification').innerHTML = 'You WIN!';
+                document.querySelectorAll('.winlose').forEach (el => el.style.display = 'grid');
 
+            }else if (this.played.length === 9) {
+                document.querySelector('#tictactoe-notification').innerHTML = 'You tied.';
+                document.querySelectorAll('.winlose').forEach (el => el.style.display = 'grid');
+
+            };
+        });
     };
 
     checkWinBot () {
         this.wins.forEach (win => {
-            //win.every(pos => this.botPlayed.includes(pos)) ? return win sequence or continues;
-        });
+            if (win.every(pos => this.botPlayed.includes(pos))) {
+                document.querySelector('#tictactoe-notification').innerHTML = 'Loser.';
+                document.querySelectorAll('.winlose').forEach (el => el.style.display = 'grid');
+                  
+            }else if (this.played.length === 9) {
+                document.querySelector('#tictactoe-notification').innerHTML = 'You tied.';
+                document.querySelectorAll('.winlose').forEach (el => el.style.display = 'grid');
 
+            };            
+        });
+    };
+
+    botPlay () {
+        const l = this.openFields.length;
+        
+        let i = Math.floor(Math.random()*l);
+
+        if (this.openFields[i] === 1) {           
+
+                document.querySelector('#one-one').innerHTML = 'O';
+                document.querySelector('#one-one').style.color = '#75eb89';
+                this.botPlayed.push(1);
+                this.played.push(1);
+                this.openFields.splice(this.openFields.indexOf(1), 1);
+                return;
+
+        };
+
+        if (this.openFields[i] === 2) {
+
+                document.querySelector('#one-two').innerHTML = 'O';
+                document.querySelector('#one-two').style.color = '#75eb89'
+                this.botPlayed.push(2);
+                this.played.push(2);
+                this.openFields.splice(this.openFields.indexOf(2), 1);
+                return;
+        };
+
+        if (this.openFields[i] === 3) {
+
+                document.querySelector('#one-three').innerHTML = 'O';
+                document.querySelector('#one-three').style.color = '#75eb89'
+                this.botPlayed.push(3);
+                this.played.push(3);
+                this.openFields.splice(this.openFields.indexOf(3), 1);
+                return;
+        };
+
+        if (this.openFields[i] === 4) {
+
+                document.querySelector('#two-one').innerHTML = 'O';
+                document.querySelector('#two-one').style.color = '#75eb89'
+                this.botPlayed.push(4);
+                this.played.push(4);
+                this.openFields.splice(this.openFields.indexOf(4), 1);
+                return;
+        };
+
+        if (this.openFields[i] === 5) {
+
+                document.querySelector('#two-two').innerHTML = 'O';
+                document.querySelector('#two-two').style.color = '#75eb89'
+                this.botPlayed.push(5);
+                this.played.push(5);
+                this.openFields.splice(this.openFields.indexOf(5), 1);
+                return;
+        };
+
+        if (this.openFields[i] === 6) {
+
+                document.querySelector('#two-three').innerHTML = 'O';
+                document.querySelector('#two-three').style.color = '#75eb89'
+                this.botPlayed.push(6);
+                this.played.push(6);
+                this.openFields.splice(this.openFields.indexOf(6), 1);
+                return;
+        };
+
+        if (this.openFields[i] === 7) {
+
+                document.querySelector('#three-one').innerHTML = 'O';
+                document.querySelector('#three-one').style.color = '#75eb89'
+                this.botPlayed.push(7);
+                this.played.push(7);
+                this.openFields.splice(this.openFields.indexOf(7), 1);
+                return;
+        };
+        
+        if (this.openFields[i] === 8) {
+
+                document.querySelector('#three-two').innerHTML = 'O';
+                document.querySelector('#three-two').style.color = '#75eb89'
+                this.botPlayed.push(8);
+                this.played.push(8);
+                this.openFields.splice(this.openFields.indexOf(8), 1);
+                return;
+        };
+
+        if (this.openFields[i] === 9) {
+
+                document.querySelector('#three-three').innerHTML = 'O';
+                document.querySelector('#three-three').style.color = '#75eb89'
+                this.botPlayed.push(9);
+                this.played.push(9);
+                this.openFields.splice(this.openFields.indexOf(9), 1);
+                return;
+        };
     };
 
     clickFunction () {
-        document.querySelector("#one-one").addEventListener('click', () => {
-            document.querySelector('#one-one').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(1)) {
+            document.querySelector("#one-one").addEventListener('click', () => {
+                document.querySelector('#one-one').innerHTML = 'X';
+                document.querySelector('#one-one').style.color = '#75eb89';
+                this.humPlayed.push(1);
+                this.played.push(1);
+                this.openFields.splice(this.openFields.indexOf(1), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#one-two").addEventListener('click', () => {
-            document.querySelector('#one-two').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(2)) {
+            document.querySelector("#one-two").addEventListener('click', () => {
+                document.querySelector('#one-two').innerHTML = 'X';
+                document.querySelector('#one-two').style.color = '#75eb89';
+                this.humPlayed.push(2);
+                this.played.push(2);
+                this.openFields.splice(this.openFields.indexOf(2), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#one-three").addEventListener('click', () => {
-            document.querySelector('#one-three').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(3)) {
+            document.querySelector("#one-three").addEventListener('click', () => {
+                document.querySelector('#one-three').innerHTML = 'X';
+                document.querySelector('#one-three').style.color = '#75eb89';
+                this.humPlayed.push(3);
+                this.played.push(3);
+                this.openFields.splice(this.openFields.indexOf(3), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#two-one").addEventListener('click', () => {
-            document.querySelector('#two-one').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(4)) {
+            document.querySelector("#two-one").addEventListener('click', () => {
+                document.querySelector('#two-one').innerHTML = 'X';
+                document.querySelector('#two-one').style.color = '#75eb89';
+                this.humPlayed.push(4);
+                this.played.push(4);
+                this.openFields.splice(this.openFields.indexOf(4), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#two-two").addEventListener('click', () => {
-            document.querySelector('#two-two').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(5)) {
+            document.querySelector("#two-two").addEventListener('click', () => {
+                document.querySelector('#two-two').innerHTML = 'X';
+                document.querySelector('#two-two').style.color = '#75eb89';
+                this.humPlayed.push(5);
+                this.played.push(5);
+                this.openFields.splice(this.openFields.indexOf(5), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#two-three").addEventListener('click', () => {
-            document.querySelector('#two-three').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(6)) {
+            document.querySelector("#two-three").addEventListener('click', () => {
+                document.querySelector('#two-three').innerHTML = 'X';
+                document.querySelector('#two-three').style.color = '#75eb89';
+                this.humPlayed.push(6);
+                this.played.push(6);
+                this.openFields.splice(this.openFields.indexOf(6), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#three-one").addEventListener('click', () => {
-            document.querySelector('#three-one').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(7)) {
+            document.querySelector("#three-one").addEventListener('click', () => {
+                document.querySelector('#three-one').innerHTML = 'X';
+                document.querySelector('#three-one').style.color = '#75eb89';
+                this.humPlayed.push(7);
+                this.played.push(7);
+                this.openFields.splice(this.openFields.indexOf(7), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#three-two").addEventListener('click', () => {
-            document.querySelector('#three-two').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(8)) {
+            document.querySelector("#three-two").addEventListener('click', () => {
+                document.querySelector('#three-two').innerHTML = 'X';
+                document.querySelector('#three-two').style.color = '#75eb89';
+                this.humPlayed.push(8);
+                this.played.push(8);
+                this.openFields.splice(this.openFields.indexOf(8), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
 
-        document.querySelector("#three-three").addEventListener('click', () => {
-            document.querySelector('#three-three').innerHTML = 'X';
-            this.humPlayed.push(1);
-            this.played.push(1);
-            this.checkWinHum;
-            //bot plays after timeout
-            this.checkWinBot;
-        });
+        if (this.openFields.includes(9)) {
+            document.querySelector("#three-three").addEventListener('click', () => {
+                document.querySelector('#three-three').innerHTML = 'X';
+                document.querySelector('#three-three').style.color = '#75eb89';
+                this.humPlayed.push(9);
+                this.played.push(9);
+                this.openFields.splice(this.openFields.indexOf(9), 1);
+                this.checkWinHum();
+                this.botPlay();
+                this.checkWinBot();
+            });
+        };
     };
 }
