@@ -59,7 +59,7 @@ function gameDynamic() {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowLeft') {
             mindless.checkArr.push(mindless.formsRandom[0], mindless.formsInbox[0]);
-            document.querySelector('#dude').src = './assets/dude-up.png';
+            document.querySelector('#dude').src = './assets/dude-left.png';
             mindless.clicked();
         };
         if (event.key === 'ArrowUp') {
@@ -69,7 +69,7 @@ function gameDynamic() {
         };
         if (event.key === 'ArrowRight') {
             mindless.checkArr.push(mindless.formsRandom[2], mindless.formsInbox[0]);
-            document.querySelector('#dude').src = './assets/dude-left.png';
+            document.querySelector('#dude').src = './assets/dude-up.png';
             mindless.clicked();
         };
     });    
