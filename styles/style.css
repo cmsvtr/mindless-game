@@ -107,11 +107,69 @@
     z-index: 25;
 }
 
-#mini-game-window {
+#tictactoe-window {
 
-    justify-content: center;
-    align-items: center;
+    display: grid;    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     z-index: 24;
+}
+
+#tictactoe-board {
+    grid-column: 2 / 5;
+    grid-row: 2 / 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+#one-one {
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
+
+#one-two {
+    border-left: 1px solid;;
+    border-bottom: 1px solid;;
+    border-right: 1px solid;;
+}
+
+#one-three {
+    border-left: 1px solid;;
+    border-bottom: 1px solid;;
+}
+
+#two-one {
+    border-top: 1px solid;;
+    border-right: 1px solid;;
+    border-bottom: 1px solid;;
+}
+
+#two-two {
+    border: 1px solid;
+}
+
+#two-three {
+    border-top: 1px solid;;
+    border-left: 1px solid;;
+    border-bottom: 1px solid;;    
+}
+
+#three-one {
+    border-right: 1px solid;
+    border-top: 1px solid;
+}
+
+#three-two {
+    border-left: 1px solid;;
+    border-top: 1px solid;;
+    border-right: 1px solid;;
+}
+
+#three-three {
+    border-left: 1px solid;;
+    border-top: 1px solid;;
 }
 
 #winlevel-window {

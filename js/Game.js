@@ -84,9 +84,109 @@ class MindlessTask {
 }
 
 
-class MiniGame {
+class TicTacToe {
     constructor () {
-        this.playTime = 10;
-        this.points = 0;
+        this.fields = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        this.played = [];
+        this.humPlayed = [];
+        this.botPlayed = [];
+        this.wins = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]];
+    };
+
+    checkWinHum () {
+        this.wins.forEach (win => {
+            //win.every(pos => this.humPlayed.includes(pos)) ? return //win sequence or continues;
+        });
+
+    };
+
+    checkWinBot () {
+        this.wins.forEach (win => {
+            //win.every(pos => this.botPlayed.includes(pos)) ? return win sequence or continues;
+        });
+
+    };
+
+    clickFunction () {
+        document.querySelector("#one-one").addEventListener('click', () => {
+            document.querySelector('#one-one').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#one-two").addEventListener('click', () => {
+            document.querySelector('#one-two').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#one-three").addEventListener('click', () => {
+            document.querySelector('#one-three').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#two-one").addEventListener('click', () => {
+            document.querySelector('#two-one').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#two-two").addEventListener('click', () => {
+            document.querySelector('#two-two').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#two-three").addEventListener('click', () => {
+            document.querySelector('#two-three').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#three-one").addEventListener('click', () => {
+            document.querySelector('#three-one').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#three-two").addEventListener('click', () => {
+            document.querySelector('#three-two').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
+
+        document.querySelector("#three-three").addEventListener('click', () => {
+            document.querySelector('#three-three').innerHTML = 'X';
+            this.humPlayed.push(1);
+            this.played.push(1);
+            this.checkWinHum;
+            //bot plays after timeout
+            this.checkWinBot;
+        });
     };
 }
