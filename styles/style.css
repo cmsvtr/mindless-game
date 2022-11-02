@@ -72,6 +72,7 @@
 #game-window {
 
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 5% 5% 5% 5%;
     height: 100%;
