@@ -1,15 +1,14 @@
-Game developed during Ironhack bootcamp for end of first module.
+﻿Mindless Tasks (https://cmsvtr.github.io/mindless-game/) is a game created as the final final project in month one of the Ironhack Fullstack Web Dev fulltime bootcamp.
 
-Start window has the name of my fictional game studio appear and after name of the game until clicked.
-After click new window appears asking for the player's name. Option to able or disable sound is on the screen. Instruction link is also included.
+With the orientation of the principal teacher, Karen, and the two teacher assistants, Jino and Danielle, I sought to develop a game that would exercise the HTML, CSS, and Javascript knowledge acquired during this first module.
 
-"Round X" with count down
+The game is set in an office environment and the green and black aesthetics was purposeful in referencing outdated work-flows.
 
-Game starts
-    Player is shown three clerks and type of form each clerk must receive. this information is then hidden. Player must remember the info.
-    Player receives a form and must click in the correct clerk. If right, clerk is shown happy, if worng, clerk is shown pissed. Every period of time the player will receive a new form. Player wins by scoring one hundred points and performance ins based on speed. Player loses when he has 10 forms in backlog or makes 5 mistakes per round.
-    At each level the forms are distributed faster. (If I have time I will increase clerks).
-    In between levels a timed mini game appears that knocks time of the game timer. Skip option is included. Before mini game a congrats window appears. After mini game a Round X count down appears. Clerks receive different forms randomly at each level.
-    Once player receives 100 points a congrats window appears.
+The main objetive of the game is to click on the correct clerk, depending on the "form" presented to the player. The clerk that should receive each form is redefined randomly at each round, and the player has a few seconds to memorize the designated clerk. The player must not make more than 10 mistakes, nor allow too many forms to pile up.
 
-game window is the back ground with elements hidden or shown. Other windows will z-index on top, with trnasparency where possible. game window header is always visible with time, points, mistakes, etc.
+In between levels, there is an intermission screen and a mini-game appears where the player competes with a random selecting bot in tic-tac-toe.
+
+Thank you for reading! 
+
+Please access the presentation at:
+https://docs.google.com/presentation/d/1oX-lvXETWV7PjwwYYcOgudQ713tevSohoIl3Ku65EHE/edit?usp=sharing
